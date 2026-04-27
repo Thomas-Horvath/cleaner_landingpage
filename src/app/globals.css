@@ -1,26 +1,188 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3efe9;
+  --foreground: #171515;
+  --surface: #faf7f2;
+  --surface-soft: #f4efe8;
+  --primary: #23523f;
+  --primary-strong: #17392c;
+  --secondary: #b05a74;
+  --accent: #ddd2c6;
+  --accent-strong: #c8b8a8;
+  --border: rgba(23, 21, 21, 0.08);
+  --muted: #5f5753;
+  --shadow: 0 18px 48px rgba(23, 21, 21, 0.09);
+  --focus-ring: rgba(176, 90, 116, 0.28);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-primary: var(--primary);
+  --color-primary-strong: var(--primary-strong);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-focus-ring: var(--focus-ring);
+  --font-sans: var(--font-montserrat);
+  --font-display: var(--font-playfair-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    radial-gradient(circle at top left, rgba(176, 90, 116, 0.08), transparent 30%),
+    radial-gradient(circle at top right, rgba(221, 210, 198, 0.55), transparent 24%),
+    linear-gradient(180deg, #f7f3ee 0%, #f3efe9 100%);
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  background: transparent;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a,
+button,
+[role='button'],
+input,
+textarea,
+select {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+::selection {
+  background: rgba(15, 93, 105, 0.2);
+}
+
+/* Közös tartalmi szélesség az összes oldalhoz. */
+.page-shell {
+  width: min(100% - 2rem, 1400px);
+  margin-inline: auto;
+}
+
+/* Kártyákhoz és panelekhez egységes, tiszta megjelenés. */
+.soft-panel {
+  background: linear-gradient(180deg, rgba(250, 247, 242, 0.98), rgba(244, 239, 232, 0.94));
+  box-shadow: var(--shadow);
+}
+
+.section-space {
+  padding-block: clamp(4rem, 6vw, 6.5rem);
+}
+
+.page-hero-space {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.headline {
+  font-family: var(--font-playfair-display), Georgia, serif;
+  color: #191513;
+}
+
+/* Feszesebb vizuális rendszer a kisebb lekerekítésekhez. */
+.panel {
+  border-radius: 0.5rem;
+  background: linear-gradient(180deg, rgba(250, 247, 242, 0.98), rgba(244, 239, 232, 0.94));
+  box-shadow: var(--shadow);
+}
+
+.button-primary {
+  border-radius: 0.45rem;
+  background: var(--primary);
+  color: #f7f3ee;
+}
+
+.button-primary:hover {
+  background: var(--primary-strong);
+}
+
+.button-secondary {
+  border-radius: 0.45rem;
+  border: 1px solid rgba(23, 21, 21, 0.12);
+  background: rgba(250, 247, 242, 0.72);
+  color: var(--foreground);
+}
+
+.button-secondary:hover {
+  border-color: rgba(176, 90, 116, 0.42);
+  color: var(--secondary);
+}
+
+.button-light {
+  border-radius: 0.45rem;
+  background: #f7f3ee;
+  color: var(--foreground);
+}
+
+.button-light:hover {
+  background: #efe7de;
+}
+
+.icon-badge {
+  border-radius: 0.45rem;
+  background: var(--accent);
+  color: var(--primary-strong);
+}
+
+.tag-soft {
+  border-radius: 0.4rem;
+  background: rgba(221, 210, 198, 0.58);
+}
+
+.image-frame {
+  border-radius: 0.45rem;
+  overflow: hidden;
+}
+
+.surface-dark {
+  border-radius: 0.5rem;
+  background: linear-gradient(180deg, #1e1a19 0%, #2a2322 100%);
+  color: #f7f3ee;
 }

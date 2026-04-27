@@ -1,0 +1,44 @@
+import Image from "next/image";
+
+import { Container } from "@/components/layout/container";
+import { SectionIntro } from "@/components/marketing/section-intro";
+import { referenceItems } from "@/data/site-content";
+
+export function ImageShowcase() {
+  return (
+    <section className="section-space">
+      <Container>
+        <SectionIntro
+          eyebrow="Referenciaképek"
+          title="Valódi, letöltött képekkel építjük a márkahangulatot."
+          description="Első körben jogtisztán felhasználható Pixabay fotókat töltöttünk le a projekthez. Ezek később cserélhetők valódi munkafotókra."
+        />
+
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          {referenceItems.map((item, index) => (
+            <article
+              key={item.title}
+              className={`image-frame bg-surface ${
+                index === 0 ? "md:col-span-2" : ""
+              }`}
+            >
+              <div className={`relative ${index === 0 ? "min-h-[420px]" : "min-h-[320px]"}`}>
+                <Image
+                  src={item.imageSrc}
+                  alt={item.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-semibold text-slate-900">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
