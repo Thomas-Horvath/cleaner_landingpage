@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { BookingWidgetPlaceholder } from "@/components/marketing/booking-widget-placeholder";
 import { CtaBanner } from "@/components/marketing/cta-banner";
 import { HeroLink, PageHero } from "@/components/marketing/page-hero";
 import { InquiryLayout } from "@/components/marketing/inquiry-layout";
@@ -25,11 +26,12 @@ export default function InquiryPage() {
       />
 
       <InquiryLayout />
+      <BookingWidgetPlaceholder />
 
       <CtaBanner
         eyebrow="Következő integráció"
         title="A következő fejlesztési körben ide kerülhet a beágyazott foglalási rendszer."
-        description="Ha szeretnéd, a következő lépésben már a konkrét oldalak végleges szövegezését és a SimplyBook.me integrációs helyét is kidolgozom."
+        description="A widgetes beágyazás külön dokumentálva is lett, így a következő fejlesztési körben már a valós SimplyBook.me kódot tudjuk ide bekötni."
         primaryAction={{ href: "/szolgaltatasok", label: "Szolgáltatások áttekintése" }}
         secondaryAction={{ href: "/", label: "Vissza a főoldalra" }}
       />

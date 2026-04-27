@@ -24,13 +24,13 @@ export function ContactGrid() {
               <a
                 key={item.label}
                 href={item.href}
-                className="panel p-6 transition hover:-translate-y-0.5"
+                className="panel p-5 transition hover:-translate-y-0.5 sm:p-6"
               >
                 <div className="icon-badge inline-flex p-3">
                   <Icon className="h-5 w-5" />
                 </div>
                 <p className="mt-4 text-sm text-muted">{item.label}</p>
-                <p className="mt-2 text-lg font-semibold text-slate-900">{item.value}</p>
+                <p className="mt-2 break-words text-base font-semibold text-slate-900 sm:text-lg">{item.value}</p>
               </a>
             );
           })}

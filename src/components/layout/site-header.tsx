@@ -15,7 +15,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-[rgba(247,243,238,0.94)] shadow-[0_10px_30px_rgba(23,21,21,0.08)] backdrop-blur-xl">
       <div className="border-b border-border/60 bg-primary text-white">
-        <Container className="flex flex-col gap-2 py-3 text-sm sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-2 py-2.5 text-xs sm:flex-row sm:items-center sm:justify-between sm:text-sm">
           <p className="font-medium">Takarítási szolgáltatások otthonokra, irodákra és eseti munkákra.</p>
           <div className="flex flex-wrap gap-4 text-white/85">
             {topbarActions.map((item) => (
@@ -27,15 +27,15 @@ export function SiteHeader() {
         </Container>
       </div>
 
-      <Container className="py-4 lg:py-5">
+      <Container className="py-3 lg:py-5">
         <div className="flex items-center justify-between gap-4">
           <Link href="/" className="flex min-w-0 items-center gap-3 rounded-sm">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-accent text-lg font-bold text-primary">
               TM
             </div>
             <div className="min-w-0">
-              <p className="headline truncate text-2xl font-semibold">{companyName}</p>
-              <p className="truncate text-sm text-muted">Tiszta, bizalomépítő, többoldalas webes megjelenés</p>
+              <p className="headline truncate text-xl font-semibold sm:text-2xl">{companyName}</p>
+              <p className="truncate text-xs text-muted sm:text-sm">Tiszta, bizalomépítő, többoldalas webes megjelenés</p>
             </div>
           </Link>
 

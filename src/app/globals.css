@@ -94,7 +94,7 @@ select:focus-visible {
 
 /* Közös tartalmi szélesség az összes oldalhoz. */
 .page-shell {
-  width: min(100% - 2rem, 1400px);
+  width: min(100% - 1.25rem, 1400px);
   margin-inline: auto;
 }
 
@@ -105,12 +105,12 @@ select:focus-visible {
 }
 
 .section-space {
-  padding-block: clamp(4rem, 6vw, 6.5rem);
+  padding-block: clamp(3rem, 6vw, 6.5rem);
 }
 
 .page-hero-space {
-  padding-top: clamp(2rem, 4vw, 3.5rem);
-  padding-bottom: clamp(3rem, 5vw, 5rem);
+  padding-top: clamp(1.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 5rem);
 }
 
 .eyebrow {
@@ -185,4 +185,11 @@ select:focus-visible {
   border-radius: 0.5rem;
   background: linear-gradient(180deg, #1e1a19 0%, #2a2322 100%);
   color: #f7f3ee;
+}
+
+.widget-shell {
+  border-radius: 0.45rem;
+  background:
+    linear-gradient(180deg, rgba(250, 247, 242, 0.98), rgba(244, 239, 232, 0.94));
+  box-shadow: var(--shadow);
 }

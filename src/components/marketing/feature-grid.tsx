@@ -25,11 +25,11 @@ export function FeatureGrid({
         <SectionIntro eyebrow={eyebrow} title={title} description={description} />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="surface-dark p-8">
+          <div className="surface-dark p-5 sm:p-7 lg:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-secondary">
               Új irány
             </p>
-            <h3 className="headline mt-4 text-4xl text-white">
+            <h3 className="headline mt-4 text-3xl text-white sm:text-4xl">
               Kevesebb zsúfoltság, erősebb bizalomépítés.
             </h3>
             <p className="mt-5 text-sm leading-7 text-white/78">
@@ -37,7 +37,7 @@ export function FeatureGrid({
               munkákat vállal a szolgáltató, hogyan kérhet ajánlatot, és hová kerül majd az
               online foglalás.
             </p>
-            <div className="mt-8 inline-flex items-center gap-3 rounded-sm border border-white/14 px-5 py-3 text-sm font-semibold">
+            <div className="mt-7 inline-flex items-center gap-3 rounded-sm border border-white/14 px-4 py-3 text-sm font-semibold sm:mt-8 sm:px-5">
               Főoldal + 5 aloldal
               <FaArrowRight className="h-4 w-4" />
             </div>
@@ -50,7 +50,7 @@ export function FeatureGrid({
               return (
                 <article
                   key={item.title}
-                  className="panel flex gap-4 p-5"
+                  className="panel flex gap-4 p-4 sm:p-5"
                 >
                   <div className="icon-badge mt-1 p-3">
                     <Icon className="h-5 w-5" />

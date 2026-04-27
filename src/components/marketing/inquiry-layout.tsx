@@ -35,11 +35,11 @@ export function InquiryLayout() {
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="surface-dark p-8">
+          <div className="surface-dark p-5 sm:p-7 lg:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-secondary">
               Következő integráció
             </p>
-            <h3 className="headline mt-4 text-4xl text-white">SimplyBook.me vagy külső űrlap szolgáltatás</h3>
+            <h3 className="headline mt-4 text-3xl text-white sm:text-4xl">SimplyBook.me vagy külső űrlap szolgáltatás</h3>
             <p className="mt-5 text-sm leading-7 text-white/76">
               Itt lehet majd dönteni arról, hogy inkább közvetlen időpontfoglalást vagy előzetes
               ajánlatkérést szeretnénk. A mostani UI mindkét irányhoz alkalmas.
@@ -57,7 +57,7 @@ export function InquiryLayout() {
               return (
                 <article
                   key={step.title}
-                  className="panel flex gap-4 p-5"
+                  className="panel flex gap-4 p-4 sm:p-5"
                 >
                   <div className="icon-badge mt-1 p-3">
                     <Icon className="h-5 w-5" />

@@ -29,11 +29,11 @@ export function ServiceCards({
             const Icon = icons[index % icons.length];
 
             return (
-              <article key={item.title} className="panel p-6">
+              <article key={item.title} className="panel p-5 sm:p-6">
                 <div className="icon-badge inline-flex p-3">
                   <Icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-5 text-2xl font-semibold text-slate-900">{item.title}</h3>
+                <h3 className="mt-4 text-xl font-semibold text-slate-900 sm:mt-5 sm:text-2xl">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
                 <ul className="mt-5 space-y-3 text-sm leading-7 text-foreground">
                   {item.bullets.map((bullet) => (

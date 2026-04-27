@@ -22,7 +22,11 @@ export function ImageShowcase() {
                 index === 0 ? "md:col-span-2" : ""
               }`}
             >
-              <div className={`relative ${index === 0 ? "min-h-[420px]" : "min-h-[320px]"}`}>
+              <div
+                className={`relative ${
+                  index === 0 ? "min-h-[260px] sm:min-h-[360px] lg:min-h-[420px]" : "min-h-[240px] sm:min-h-[280px] lg:min-h-[320px]"
+                }`}
+              >
                 <Image
                   src={item.imageSrc}
                   alt={item.imageAlt}
@@ -31,8 +35,8 @@ export function ImageShowcase() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-slate-900">{item.title}</h3>
+              <div className="p-5 sm:p-6">
+                <h3 className="text-xl font-semibold text-slate-900 sm:text-2xl">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
               </div>
             </article>

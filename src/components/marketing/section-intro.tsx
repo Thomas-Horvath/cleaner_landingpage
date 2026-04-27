@@ -16,8 +16,8 @@ export function SectionIntro({
   return (
     <div className={`max-w-3xl ${alignmentClass}`.trim()}>
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="headline mt-4 text-4xl sm:text-5xl">{title}</h2>
-      {description ? <p className="mt-5 text-base leading-8 text-muted">{description}</p> : null}
+      <h2 className="headline mt-4 text-3xl leading-tight sm:text-4xl lg:text-5xl">{title}</h2>
+      {description ? <p className="mt-4 text-sm leading-7 text-muted sm:text-base sm:leading-8">{description}</p> : null}
     </div>
   );
 }
