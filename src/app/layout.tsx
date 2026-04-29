@@ -33,9 +33,9 @@ export default function RootLayout({
   return (
     <html
       lang="hu"
-      className={`${montserrat.variable} ${playfairDisplay.variable} h-full scroll-smooth antialiased`}
+      className={`${montserrat.variable} ${playfairDisplay.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-background text-foreground">
+      <body className="min-h-full bg-background text-foreground pt-[134px]">
         <div className="relative flex min-h-screen flex-col overflow-x-hidden">
           <SiteHeader />
           <main className="flex-1">{children}</main>

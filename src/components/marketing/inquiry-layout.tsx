@@ -5,21 +5,21 @@ import { SectionIntro } from "@/components/marketing/section-intro";
 
 const steps = [
   {
-    title: "1. Rövid igényfelmérés",
+    title: "1. Válassz szolgáltatást",
     description:
-      "A látogató megadja, milyen típusú takarítást keres, és melyik városrészben lenne rá szükség.",
+      "Jelöld meg, hogy rendszeres lakástakarításról, egyszeri nagytakarításról vagy egy kisebb, célzott feladatról van szó.",
     icon: FaFileSignature,
   },
   {
-    title: "2. Visszahívás vagy e-mail",
+    title: "2. Add meg az elérhetőségeidet",
     description:
-      "A kapcsolatfelvétel külső űrlap vagy SimplyBook.me folyamat felé terelhető a következő körben.",
+      "Írd meg, hol lenne szükség a takarításra, és melyik telefonszámon vagy e-mail címen tudlak a legkönnyebben elérni.",
     icon: FaPhoneVolume,
   },
   {
-    title: "3. Időpont vagy foglalás",
+    title: "3. Küldd el az igényed",
     description:
-      "Itt tud később belépni az online foglalási rendszer, backend fejlesztés nélkül is.",
+      "A kiválasztott időponttal együtt megérkezik az ajánlatkérésed, én pedig visszajelzek a megerősítésről és a részletekről.",
     icon: FaCalendarDays,
   },
 ];
@@ -29,24 +29,22 @@ export function InquiryLayout() {
     <section className="section-space pt-0">
       <Container>
         <SectionIntro
-          eyebrow="Ajánlatkérés"
-          title="Az ajánlatkérő oldal külön konverziós céloldalként működik."
-          description="Mivel a projekt statikus tárhelyre készül, ebben a körben nem építünk saját űrlap-backendet. A vizuális és tartalmi helyét viszont most kialakítjuk."
+          eyebrow="Hogyan működik?"
+          title="Néhány gyors lépésben el tudod küldeni, mire lenne szükséged."
+          description="Az ajánlatkérés célja, hogy már az első üzenetben lássam az alap igényeidet, így gyorsabban és pontosabban tudok visszajelezni neked."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="surface-dark p-5 sm:p-7 lg:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-secondary">
-              Következő integráció
+Tiszta, egyszerű folyamat
             </p>
-            <h3 className="headline mt-4 text-3xl text-white sm:text-4xl">SimplyBook.me vagy külső űrlap szolgáltatás</h3>
+            <h3 className="headline mt-4 text-3xl text-white sm:text-4xl">Otthonokra szabott takarítás, felesleges körök nélkül</h3>
             <p className="mt-5 text-sm leading-7 text-white/76">
-              Itt lehet majd dönteni arról, hogy inkább közvetlen időpontfoglalást vagy előzetes
-              ajánlatkérést szeretnénk. A mostani UI mindkét irányhoz alkalmas.
+              Akkor működik jól egy ajánlatkérés, ha gyors, átlátható és nem kér több adatot a kelleténél. Itt először kiválasztod az időpontot, utána pár mezőben leírod az igényedet, én pedig személyesen visszajelzek.
             </p>
             <div className="mt-8 rounded-sm bg-white/6 p-5 text-sm leading-7 text-white/76">
-              Javaslat: ha a szolgáltatás erősen egyedi, az ajánlatkérés legyen az elsődleges CTA,
-              és csak a fixen csomagolható szolgáltatások kapjanak közvetlen online foglalást.
+              Ha most még csak tájékozódsz, akkor is érdemes elküldeni az igényt. Egy rövid egyeztetés után könnyebb eldönteni, hogy egyszeri alkalomra, rendszeres takarításra vagy nagytakarításra van-e szükség.
             </div>
           </div>
 

@@ -38,3 +38,66 @@ export type ReferenceItem = {
   imageSrc: string;
   imageAlt: string;
 };
+
+export type BookingSlotLabel = 'morning' | 'afternoon' | 'evening';
+export type BookingStatus = 'free' | 'pending' | 'confirmed';
+export type BackendBookingStatus = 'pending' | 'confirmed' | 'cancelled';
+
+export type BookingSlotApiItem = {
+  id: number;
+  booking_id: number;
+  booking_date: string;
+  slot: BookingSlotLabel;
+  status: BackendBookingStatus;
+  customer_name: string;
+  service_type: string | null;
+};
+
+export type BookingSlotState = {
+  bookingDate: string;
+  slot: BookingSlotLabel;
+  status: BookingStatus;
+  customerName?: string;
+  serviceType?: string | null;
+};
+
+export type BookingFormPayload = {
+  customer_name: string;
+  email: string;
+  phone: string;
+  address: string;
+  service_type: string;
+  message: string;
+  booking_date: string;
+  slot: BookingSlotLabel;
+};
+
+export type AdminLoginPayload = {
+  username: string;
+  password: string;
+};
+
+export type AdminSessionData = {
+  username: string;
+  display_name: string;
+  logged_in_at: string | null;
+};
+
+export type AdminBookingSlot = {
+  booking_date: string;
+  slot: BookingSlotLabel;
+};
+
+export type AdminBookingItem = {
+  id: number;
+  customer_name: string;
+  email: string;
+  phone: string;
+  address: string;
+  service_type: string | null;
+  message: string | null;
+  status: BackendBookingStatus;
+  created_at: string;
+  updated_at: string;
+  slots: AdminBookingSlot[];
+};

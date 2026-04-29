@@ -52,7 +52,6 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -92,13 +91,11 @@ select:focus-visible {
   background: rgba(15, 93, 105, 0.2);
 }
 
-/* Közös tartalmi szélesség az összes oldalhoz. */
 .page-shell {
   width: min(100% - 1.25rem, 1400px);
   margin-inline: auto;
 }
 
-/* Kártyákhoz és panelekhez egységes, tiszta megjelenés. */
 .soft-panel {
   background: linear-gradient(180deg, rgba(250, 247, 242, 0.98), rgba(244, 239, 232, 0.94));
   box-shadow: var(--shadow);
@@ -123,10 +120,9 @@ select:focus-visible {
 
 .headline {
   font-family: var(--font-playfair-display), Georgia, serif;
-  color: #191513;
+
 }
 
-/* Feszesebb vizuális rendszer a kisebb lekerekítésekhez. */
 .panel {
   border-radius: 0.5rem;
   background: linear-gradient(180deg, rgba(250, 247, 242, 0.98), rgba(244, 239, 232, 0.94));
