@@ -20,7 +20,7 @@ export function ServiceCards({
   items,
 }: ServiceCardsProps) {
   return (
-    <section className="section-space">
+    <section className="section-space section-warm">
       <Container>
         <SectionIntro eyebrow={eyebrow} title={title} description={description} />
 
@@ -50,3 +50,5 @@ export function ServiceCards({
     </section>
   );
 }
+
+

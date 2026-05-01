@@ -40,6 +40,9 @@ const STATUS_LABELS: Record<BookingStatus, string> = {
   confirmed: 'Foglalt',
 };
 
+const UNAVAILABLE_SLOT_STYLE = 'border border-slate-300 bg-slate-100 text-slate-500';
+const MIN_FORM_FILL_TIME_MS = 3000;
+
 const INITIAL_FORM_STATE: BookingFormPayload = {
   customer_name: '',
   email: '',
@@ -49,6 +52,7 @@ const INITIAL_FORM_STATE: BookingFormPayload = {
   message: '',
   booking_date: '',
   slot: 'morning',
+  website: '',
 };
 
 function getStartOfWeek(date: Date): Date {
@@ -68,6 +72,23 @@ function addDays(date: Date, amount: number): Date {
 
 function toIsoDate(date: Date): string {
   return date.toLocaleDateString('en-CA');
+}
+
+function getTodayStart(): Date {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return today;
+}
+
+function isDateBookable(date: Date): boolean {
+  const compareDate = new Date(date);
+  compareDate.setHours(0, 0, 0, 0);
+
+  return compareDate.getTime() > getTodayStart().getTime();
+}
+
+function isIsoDateBookable(isoDate: string): boolean {
+  return isDateBookable(new Date(`${isoDate}T00:00:00`));
 }
 
 function formatDisplayDate(date: Date): string {
@@ -105,19 +126,23 @@ export function BookingRequestPlanner() {
   // - milyen slot adatokat töltöttünk le a backendből
   // - melyik idősáv van kijelölve
   // - mi van a form mezőiben
+  // - mikor kezdte el kitölteni a felhasználó az űrlapot
   const [weekOffset, setWeekOffset] = useState(0);
   const [slotStates, setSlotStates] = useState<BookingSlotState[]>([]);
   const [selectedSlot, setSelectedSlot] = useState<BookingSlotState | null>(null);
   const [formState, setFormState] = useState<BookingFormPayload>(INITIAL_FORM_STATE);
+  const [formStartedAt, setFormStartedAt] = useState(() => Date.now());
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [apiSource, setApiSource] = useState<BookingApiSource>('api');
 
+  const currentWeekStart = useMemo(() => getStartOfWeek(new Date()), []);
+
   const weekStart = useMemo(() => {
-    return addDays(getStartOfWeek(new Date()), weekOffset * 7);
-  }, [weekOffset]);
+    return addDays(currentWeekStart, weekOffset * 7);
+  }, [currentWeekStart, weekOffset]);
 
   const weekDays = useMemo(() => {
     return Array.from({ length: 7 }, (_, index) => addDays(weekStart, index));
@@ -185,6 +210,10 @@ export function BookingRequestPlanner() {
   }
 
   function handleWeekChange(direction: 'previous' | 'next') {
+    if (direction === 'previous' && weekOffset === 0) {
+      return;
+    }
+
     setSelectedSlot(null);
     setSuccessMessage(null);
     setErrorMessage(null);
@@ -193,7 +222,7 @@ export function BookingRequestPlanner() {
   }
 
   function handleSelectSlot(slotState: BookingSlotState) {
-    if (slotState.status !== 'free') {
+    if (slotState.status !== 'free' || !isIsoDateBookable(slotState.bookingDate)) {
       return;
     }
 
@@ -223,6 +252,16 @@ export function BookingRequestPlanner() {
       return;
     }
 
+    if (!isIsoDateBookable(selectedSlot.bookingDate)) {
+      setErrorMessage('Csak jövőbeli, azaz holnaptól kezdődő időpontra lehet foglalást küldeni.');
+      return;
+    }
+
+    if (Date.now() - formStartedAt < MIN_FORM_FILL_TIME_MS) {
+      setErrorMessage('Kérlek várj egy pillanatot, majd küldd el újra az ajánlatkérést.');
+      return;
+    }
+
     setIsSubmitting(true);
     setErrorMessage(null);
     setSuccessMessage(null);
@@ -232,6 +271,8 @@ export function BookingRequestPlanner() {
         ...formState,
         booking_date: selectedSlot.bookingDate,
         slot: selectedSlot.slot,
+        website: formState.website ?? '',
+        form_started_at: formStartedAt,
       });
 
       setSuccessMessage(
@@ -241,6 +282,7 @@ export function BookingRequestPlanner() {
       );
       setSelectedSlot(null);
       setFormState(INITIAL_FORM_STATE);
+      setFormStartedAt(Date.now());
 
       const refreshedSlots = await fetchWeekBookingSlots(toIsoDate(weekDays[0]), toIsoDate(weekDays[6]));
       setSlotStates(refreshedSlots.slots);
@@ -253,7 +295,7 @@ export function BookingRequestPlanner() {
   }
 
   return (
-    <section className="section-space pt-0">
+    <section className="section-space section-soft pt-0">
       <Container>
         <SectionIntro
           eyebrow="Időpontválasztás"
@@ -268,6 +310,9 @@ export function BookingRequestPlanner() {
             <p><strong>Délután</strong>: {BOOKING_SLOT_TIME_RANGES.afternoon}</p>
             <p><strong>Este</strong>: {BOOKING_SLOT_TIME_RANGES.evening}</p>
           </div>
+          <p className="mt-4 text-sm leading-7 text-muted">
+            Foglalást csak jövőbeli napra lehet küldeni, ezért az aznapi és korábbi dátumok nem választhatók.
+          </p>
 
           {apiSource === 'fallback' ? (
             <p className="mt-4 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
@@ -288,7 +333,8 @@ export function BookingRequestPlanner() {
                 <button
                   type="button"
                   onClick={() => handleWeekChange('previous')}
-                  className="button-secondary inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold"
+                  disabled={weekOffset === 0}
+                  className="button-secondary inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   <FaArrowLeft className="h-4 w-4" />
                   Előző hét
@@ -307,6 +353,7 @@ export function BookingRequestPlanner() {
             <div className="mt-5 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-7 xl:gap-3.5">
               {weekDays.map((day) => {
                 const dateKey = toIsoDate(day);
+                const isBookableDay = isDateBookable(day);
 
                 return (
                   <article key={dateKey} className="min-w-0 rounded-md border border-border/70 bg-white/60 p-4 xl:min-h-[430px] xl:p-3.5">
@@ -320,10 +367,11 @@ export function BookingRequestPlanner() {
                     <div className="mt-4 grid gap-3 xl:mt-4 xl:gap-3">
                       {SLOT_ORDER.map((slot) => {
                         const slotState = getSlotState(day, slot);
-                        const isSelectable = slotState.status === 'free';
+                        const isSelectable = slotState.status === 'free' && isBookableDay;
                         const isSelected =
                           selectedSlot?.bookingDate === slotState.bookingDate &&
                           selectedSlot?.slot === slotState.slot;
+                        const visualStatusLabel = isBookableDay ? STATUS_LABELS[slotState.status] : 'Nem foglalható';
 
                         return (
                           <button
@@ -331,17 +379,19 @@ export function BookingRequestPlanner() {
                             type="button"
                             onClick={() => handleSelectSlot(slotState)}
                             disabled={!isSelectable}
-                            className={`grid min-w-0 min-h-[110px] w-full content-start gap-3 rounded-md p-3 text-left xl:min-h-[118px] xl:gap-3.5 xl:p-3 ${STATUS_STYLES[slotState.status]} ${
-                              isSelectable ? 'cursor-pointer hover:-translate-y-0.5' : 'cursor-not-allowed opacity-95'
-                            } ${isSelected ? 'ring-2 ring-secondary' : ''}`}
+                            className={`grid min-w-0 min-h-[110px] w-full content-start gap-3 rounded-md p-3 text-left xl:min-h-[118px] xl:gap-3.5 xl:p-3 ${
+                              isBookableDay ? STATUS_STYLES[slotState.status] : UNAVAILABLE_SLOT_STYLE
+                            } ${isSelectable ? 'cursor-pointer hover:-translate-y-0.5' : 'cursor-not-allowed opacity-95'} ${isSelected ? 'ring-2 ring-secondary' : ''}`}
                           >
                             <div className="grid min-w-0 grid-cols-[1fr_auto] items-start gap-3">
                               <div className="min-w-0">
                                 <p className="text-sm font-semibold leading-snug xl:text-[0.85rem]">{BOOKING_SLOT_LABELS[slot]}</p>
                                 <p className="mt-1 text-[0.72rem] font-medium leading-4 opacity-70 xl:text-[0.68rem]">{BOOKING_SLOT_TIME_RANGES[slot]}</p>
-                                <p className="mt-1 text-xs font-medium leading-4 opacity-80 xl:mt-1 xl:text-[0.72rem]">{STATUS_LABELS[slotState.status]}</p>
+                                <p className="mt-1 text-xs font-medium leading-4 opacity-80 xl:mt-1 xl:text-[0.72rem]">{visualStatusLabel}</p>
                               </div>
-                              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-black/6">{getStatusIcon(slotState.status)}</span>
+                              <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-black/6">
+                                {isBookableDay ? getStatusIcon(slotState.status) : <FaClock className="h-4 w-4" />}
+                              </span>
                             </div>
 
                             {slotState.customerName ? (
@@ -451,7 +501,7 @@ export function BookingRequestPlanner() {
                       value={formState.address}
                       onChange={(event) => handleInputChange('address', event.target.value)}
                       className="rounded-md border border-border/70 bg-white px-4 py-3 text-sm"
-                      placeholder="1117 Budapest, Minta utca 12."
+                      placeholder="8360 Keszthely, Minta utca 12."
                       required
                     />
                   </label>
@@ -479,6 +529,16 @@ export function BookingRequestPlanner() {
                       onChange={(event) => handleInputChange('message', event.target.value)}
                       className="min-h-[140px] rounded-md border border-border/70 bg-white px-4 py-3 text-sm"
                       placeholder="Írd le röviden a takarítás típusát, a lakás méretét vagy bármi fontos infót."
+                    />
+                  </label>
+
+                  <label className="hidden" aria-hidden="true">
+                    Weboldal
+                    <input
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={formState.website ?? ''}
+                      onChange={(event) => handleInputChange('website', event.target.value)}
                     />
                   </label>
                 </div>

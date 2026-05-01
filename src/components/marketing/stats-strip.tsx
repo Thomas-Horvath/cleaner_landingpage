@@ -3,7 +3,7 @@ import type { StatItem } from "@/types/site";
 
 export function StatsStrip({ items }: { items: StatItem[] }) {
   return (
-    <section className="pb-6">
+    <section className="section-space section-soft pt-0 pb-8 sm:pb-10">
       <Container>
         <div className="grid gap-4 md:grid-cols-3">
           {items.map((item) => (
@@ -17,3 +17,4 @@ export function StatsStrip({ items }: { items: StatItem[] }) {
     </section>
   );
 }
+

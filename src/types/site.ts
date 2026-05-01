@@ -70,6 +70,8 @@ export type BookingFormPayload = {
   message: string;
   booking_date: string;
   slot: BookingSlotLabel;
+  website?: string;
+  form_started_at?: number;
 };
 
 export type AdminLoginPayload = {
@@ -79,7 +81,7 @@ export type AdminLoginPayload = {
 
 export type AdminSessionData = {
   username: string;
-  display_name: string;
+  display_name: string | null;
   logged_in_at: string | null;
 };
 

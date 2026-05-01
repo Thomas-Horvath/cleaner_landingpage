@@ -6,12 +6,12 @@ import { referenceItems } from "@/data/site-content";
 
 export function ImageShowcase() {
   return (
-    <section className="section-space">
+    <section className="section-space section-warm">
       <Container>
         <SectionIntro
           eyebrow="Referenciaképek"
-          title="Valódi, letöltött képekkel építjük a márkahangulatot."
-          description="Első körben jogtisztán felhasználható Pixabay fotókat töltöttünk le a projekthez. Ezek később cserélhetők valódi munkafotókra."
+          title="Néhány hangulatkép arról, milyen tiszta, rendezett összhatásra számíthatsz."
+          description="A referenciaoldal képi világa azt mutatja meg, milyen típusú otthonokhoz, részletekhez és munkaterekhez illeszkedik leginkább ez a szolgáltatás."
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -46,3 +46,5 @@ export function ImageShowcase() {
     </section>
   );
 }
+
+

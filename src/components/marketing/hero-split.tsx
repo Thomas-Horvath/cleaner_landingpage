@@ -23,7 +23,7 @@ export function HeroSplit({
   imageAlt,
 }: HeroSplitProps) {
   return (
-    <section className="page-hero-space">
+    <section className="page-hero-space section-soft">
       <Container>
         <div className="grid gap-6 lg:grid-cols-[0.98fr_1.02fr] lg:items-stretch">
           <div className="panel flex flex-col justify-between p-5 sm:p-8 lg:p-10">
@@ -62,11 +62,11 @@ export function HeroSplit({
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">
               <div className="max-w-md rounded-sm bg-white/12 p-4 text-white backdrop-blur-md sm:p-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/75">
-                  Első dizájnkör
+                  Megbízható segítség
                 </p>
                 <p className="mt-3 text-base leading-6 sm:text-lg sm:leading-7">
-                  Erősebb, bizalmat építő vizuális nyitás többoldalas navigációval és saját
-                  fotóanyaggal.
+                  Rendszeres és alkalmi takarításhoz is olyan segítséget nyújtok, ahol a
+                  pontosság, a diszkréció és a megbízhatóság ugyanolyan fontos, mint a tiszta végeredmény.
                 </p>
               </div>
             </div>
@@ -76,3 +76,7 @@ export function HeroSplit({
     </section>
   );
 }
+
+
+
+

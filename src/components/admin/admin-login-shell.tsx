@@ -79,8 +79,7 @@ export function AdminLoginShell() {
           <p className="eyebrow">Belépés</p>
           <h1 className="headline mt-4 text-3xl text-slate-900 sm:text-4xl">Szolgáltatói felület</h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
-            Ezen a felületen lehet majd kezelni a beérkező foglalásokat, áttekinteni a függőben
-            lévő kéréseket és ellenőrizni az időpontokat.
+            Ezen a felületen tudod áttekinteni a beérkező foglalásokat, ellenőrizni a kiválasztott időpontokat és kezelni a napi teendőket.
           </p>
 
           <form onSubmit={handleSubmit} className="mt-8 grid gap-4">

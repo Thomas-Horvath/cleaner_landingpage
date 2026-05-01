@@ -5,17 +5,17 @@ import { ContactGrid } from "@/components/marketing/contact-grid";
 import { HeroLink, PageHero } from "@/components/marketing/page-hero";
 
 export const metadata: Metadata = {
-  title: "Kapcsolat",
-  description: "Kapcsolati oldal takarítási vállalkozáshoz.",
+  title: "Kapcsolat | Tisztaság Műhely",
+  description: "Elérhetőségek és kapcsolatfelvételi lehetőségek takarítási szolgáltatáshoz Keszthelyen és környékén.",
 };
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Kapcsolat és egyeztetés"
-        title="Az elérhetőségek külön oldalra kerültek, hogy mobilon is gyorsan használhatók legyenek."
-        description="Itt tudjuk majd elhelyezni a végleges telefonszámokat, e-mail címet, szolgáltatási területet, Google Térkép hivatkozást és a külső űrlapokat is."
+        eyebrow="Kapcsolat"
+        title="Ha kérdésed van, vagy előbb egyeztetnél, itt könnyen elérsz."
+        description="Telefonon és e-mailben is szívesen fogadom a megkereséseket. Akkor is írj nyugodtan, ha még csak körvonalazódik benned, milyen segítségre lenne szükséged Keszthelyen vagy a környéken."
         actions={
           <>
             <HeroLink href="/ajanlatkeres" label="Ajánlatkérés" />
@@ -27,10 +27,10 @@ export default function ContactPage() {
       <ContactGrid />
 
       <CtaBanner
-        eyebrow="Foglalási irány"
-        title="A kapcsolat oldalról is könnyen átvihető a felhasználó az online foglalás felé."
-        description="Ha a későbbiekben a SimplyBook.me lesz a fő csatorna, ide is kerülhet külön kiemelt gomb vagy widget-blokk."
-        primaryAction={{ href: "/ajanlatkeres", label: "Foglalási irányok" }}
+        eyebrow="Gyors egyeztetés"
+        title="Ha már nagyjából tudod, mire lenne szükséged, az ajánlatkérő oldalon rögtön el tudod indítani az egyeztetést."
+        description="Válassz egy számodra megfelelő időpontot, írd meg röviden a részleteket, és visszajelzek a lehetőségekkel. Így gyorsabban össze tud állni, milyen takarítás lenne számodra a legjobb megoldás."
+        primaryAction={{ href: "/ajanlatkeres", label: "Ajánlatkérés" }}
         secondaryAction={{ href: "/referenciak", label: "Referenciák" }}
       />
     </>

@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   },
   description:
     "Többoldalas takarítási weboldal magyar nyelven, statikus hosztolásra és külső foglalási integrációra felkészítve.",
+  icons: {
+    icon: "/brand-mark.svg",
+    shortcut: "/brand-mark.svg",
+    apple: "/brand-mark.svg",
+  },
 };
 
 export default function RootLayout({

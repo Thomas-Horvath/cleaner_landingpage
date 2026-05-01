@@ -18,7 +18,7 @@ export function CtaBanner({
   secondaryAction,
 }: CtaBannerProps) {
   return (
-    <section className="section-space pt-0">
+    <section className="section-space section-soft pt-0">
       <Container>
         <div className="surface-dark bg-[linear-gradient(135deg,#17392c_0%,#23523f_55%,#b05a74_100%)] px-6 py-10 shadow-[0_24px_60px_rgba(23,21,21,0.18)] sm:px-10">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-white/70">
@@ -45,3 +45,4 @@ export function CtaBanner({
     </section>
   );
 }
+

@@ -5,6 +5,11 @@ import { companyName, navigationItems } from "@/data/site-content";
 
 const hiddenAdminPath = "/muhely-belepes";
 const currentYear = new Date().getFullYear();
+const legalLinks = [
+  { href: "/impresszum", label: "Impresszum" },
+  { href: "/adatvedelem", label: "Adatvédelem" },
+  { href: "/cookie-tajekoztato", label: "Cookie tájékoztató" },
+];
 
 export function SiteFooter() {
   return (
@@ -34,11 +39,19 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-white/10 py-5 text-xs text-white/52 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-t border-white/10 py-5 text-xs text-white/52 lg:flex-row lg:items-center lg:justify-between">
           <p>Copyright © {currentYear} {companyName}. Minden jog fenntartva.</p>
-          <Link href={hiddenAdminPath} className="w-fit text-white/45 transition hover:text-white/72">
-            Belépés
-          </Link>
+
+          <div className="flex flex-wrap gap-4 text-white/52">
+            {legalLinks.map((item) => (
+              <Link key={item.href} href={item.href} className="transition hover:text-white/80">
+                {item.label}
+              </Link>
+            ))}
+            <Link href={hiddenAdminPath} className="transition hover:text-white/72">
+              Belépés
+            </Link>
+          </div>
         </div>
       </Container>
     </footer>

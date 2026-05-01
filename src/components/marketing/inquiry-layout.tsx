@@ -19,29 +19,29 @@ const steps = [
   {
     title: "3. Küldd el az igényed",
     description:
-      "A kiválasztott időponttal együtt megérkezik az ajánlatkérésed, én pedig visszajelzek a megerősítésről és a részletekről.",
+      "A kiválasztott időponttal együtt megérkezik az ajánlatkérésed, én pedig visszajelzek a részletekről és a megerősítésről.",
     icon: FaCalendarDays,
   },
 ];
 
 export function InquiryLayout() {
   return (
-    <section className="section-space pt-0">
+    <section className="section-space section-warm pt-0">
       <Container>
         <SectionIntro
           eyebrow="Hogyan működik?"
-          title="Néhány gyors lépésben el tudod küldeni, mire lenne szükséged."
+          title="Néhány egyszerű lépésben el tudod küldeni, mire lenne szükséged."
           description="Az ajánlatkérés célja, hogy már az első üzenetben lássam az alap igényeidet, így gyorsabban és pontosabban tudok visszajelezni neked."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="surface-dark p-5 sm:p-7 lg:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-secondary">
-Tiszta, egyszerű folyamat
+              Átlátható folyamat
             </p>
-            <h3 className="headline mt-4 text-3xl text-white sm:text-4xl">Otthonokra szabott takarítás, felesleges körök nélkül</h3>
+            <h3 className="headline mt-4 text-3xl text-white sm:text-4xl">Egyszerű egyeztetés, felesleges körök nélkül</h3>
             <p className="mt-5 text-sm leading-7 text-white/76">
-              Akkor működik jól egy ajánlatkérés, ha gyors, átlátható és nem kér több adatot a kelleténél. Itt először kiválasztod az időpontot, utána pár mezőben leírod az igényedet, én pedig személyesen visszajelzek.
+              Akkor működik jól egy ajánlatkérés, ha gyors, érthető és nem kér több adatot a kelleténél. Először kiválasztod az időpontot, utána néhány mezőben leírod az igényedet, én pedig személyesen visszajelzek.
             </p>
             <div className="mt-8 rounded-sm bg-white/6 p-5 text-sm leading-7 text-white/76">
               Ha most még csak tájékozódsz, akkor is érdemes elküldeni az igényt. Egy rövid egyeztetés után könnyebb eldönteni, hogy egyszeri alkalomra, rendszeres takarításra vagy nagytakarításra van-e szükség.
@@ -73,3 +73,4 @@ Tiszta, egyszerű folyamat
     </section>
   );
 }
+

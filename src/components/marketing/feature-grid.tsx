@@ -20,25 +20,25 @@ export function FeatureGrid({
   items,
 }: FeatureGridProps) {
   return (
-    <section className="section-space bg-white/20">
+    <section className="section-space section-soft">
       <Container>
         <SectionIntro eyebrow={eyebrow} title={title} description={description} />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="surface-dark p-5 sm:p-7 lg:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-secondary">
-              Új irány
+              Nyugodt működés
             </p>
             <h3 className="headline mt-4 text-3xl text-white sm:text-4xl">
-              Kevesebb zsúfoltság, erősebb bizalomépítés.
+              Akkor jó az együttműködés, ha a tisztaság mellett a bizalom is magától értetődő.
             </h3>
             <p className="mt-5 text-sm leading-7 text-white/78">
-              A többoldalas szerkezet célja, hogy a látogató gyorsan megértse, milyen típusú
-              munkákat vállal a szolgáltató, hogyan kérhet ajánlatot, és hová kerül majd az
-              online foglalás.
+              Sokan nemcsak takarítót keresnek, hanem valakit, akire nyugodtan rá lehet bízni az
+              otthont vagy a kisebb munkahelyi tereket. Ezt a biztonságot és kiszámíthatóságot
+              szeretném képviselni minden egyeztetésnél és minden munkánál.
             </p>
             <div className="mt-7 inline-flex items-center gap-3 rounded-sm border border-white/14 px-4 py-3 text-sm font-semibold sm:mt-8 sm:px-5">
-              Főoldal + 5 aloldal
+              Keszthely és környéke
               <FaArrowRight className="h-4 w-4" />
             </div>
           </div>
@@ -68,3 +68,4 @@ export function FeatureGrid({
     </section>
   );
 }
+

@@ -6,17 +6,17 @@ import { ReferenceGallery } from "@/components/marketing/reference-gallery";
 import { referenceItems } from "@/data/site-content";
 
 export const metadata: Metadata = {
-  title: "Referenciák",
-  description: "Képes referenciaoldal takarítási szolgáltatáshoz.",
+  title: "Referenciák | Tisztaság Műhely",
+  description: "Otthoni és kisebb irodai takarítások hangulatát bemutató referenciaoldal Keszthelyen és környékén.",
 };
 
 export default function ReferencesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Referenciák és vizuális bizalom"
-        title="A referenciák külön oldalon sokkal erősebbek, mint egy rövid főoldali galériában."
-        description="A konkurens oldalak logikáját megtartottuk, de rendezettebb, magazinosabb tálalással. Később ide jöhetnek saját munkafotók, ügyfélidézetek és előtte-utána összeállítások is."
+        eyebrow="Referenciák"
+        title="A rendezett, tiszta terek hangulata sokszor önmagáért beszél."
+        description="Ezen az oldalon olyan enteriőröket és részleteket látsz, amelyek jól visszaadják, milyen igényes, friss és ápolt összhatásra számíthatsz egy alapos takarítás után."
         actions={
           <>
             <HeroLink href="/ajanlatkeres" label="Hasonló munkára kérek ajánlatot" />
@@ -28,9 +28,9 @@ export default function ReferencesPage() {
       <ReferenceGallery items={referenceItems} />
 
       <CtaBanner
-        eyebrow="Saját fotók"
-        title="A következő körben a stock képek helyére könnyen betehetők a valódi referenciaanyagok."
-        description="A mostani felépítés azért előnyös, mert a képblokkok és a kísérő szövegek már készen állnak a valós tartalom fogadására."
+        eyebrow="Saját igények"
+        title="Ha hasonló jellegű segítségre lenne szükséged, az egyeztetést pár perc alatt el tudjuk indítani."
+        description="Írd meg röviden, milyen takarításra gondoltál, és visszajelzek a lehetőségekkel. Legyen szó rendszeres segítségről vagy egy alaposabb egyszeri munkáról, együtt megtaláljuk a megfelelő megoldást."
         primaryAction={{ href: "/ajanlatkeres", label: "Ajánlatot kérek" }}
         secondaryAction={{ href: "/szolgaltatasok", label: "Szolgáltatások" }}
       />

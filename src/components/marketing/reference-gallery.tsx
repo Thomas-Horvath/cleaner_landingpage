@@ -6,12 +6,12 @@ import type { ReferenceItem } from "@/types/site";
 
 export function ReferenceGallery({ items }: { items: ReferenceItem[] }) {
   return (
-    <section className="section-space pt-0">
+    <section className="section-space section-warm pt-0">
       <Container>
         <SectionIntro
-          eyebrow="Referenciaoldal"
-          title="A külön referenciák oldal erősebb bizalomépítő elem, mint ha minden a főoldalra zsúfolódna."
-          description="A mostani első körben stock fotókkal dolgozunk, de a struktúra már alkalmas saját munkaképek, előtte-utána párok és ügyfélvélemények fogadására is."
+          eyebrow="Hangulatképek"
+          title="Minden kép ugyanazt az érzést mutatja: tisztaságot, rendezettséget és megkönnyebbülést."
+          description="Akár egy otthon felfrissítéséről, akár egy kisebb munkatér rendben tartásáról van szó, a cél mindig az, hogy a tér ápolt, nyugodt és jólesően rendezett legyen."
         />
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -37,3 +37,5 @@ export function ReferenceGallery({ items }: { items: ReferenceItem[] }) {
     </section>
   );
 }
+
+

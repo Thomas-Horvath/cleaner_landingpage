@@ -25,89 +25,89 @@ export const topbarActions: CtaAction[] = [
 ];
 
 export const homeStats: StatItem[] = [
-  { value: "48h", label: "átlagos visszajelzési idő ajánlatkérésre" },
-  { value: "6+", label: "kiemelt szolgáltatási kategória" },
-  { value: "100%", label: "statikus hosztingra optimalizált felépítés" },
+  { value: "24h", label: "átlagos visszajelzési idő ajánlatkérésre" },
+  { value: "Keszthely", label: "és környéke kiszállási terület" },
+  { value: "Rugalmas", label: "egyeztetés otthonokhoz és kisebb irodákhoz" },
 ];
 
 export const serviceGroups: ServiceItem[] = [
   {
     title: "Lakástakarítás",
     description:
-      "Rendszeres vagy eseti otthoni takarítás, ahol a cél a nyugodt, átlátható és rendezett élettér.",
-    bullets: ["Heti vagy kétheti ütemezés", "Konyha és fürdő kiemelt figyelemmel", "Külön egyeztethető nagytakarítás"],
+      "Rendszeres vagy alkalmi segítség, hogy az otthonod tiszta, friss és rendezett maradjon a hétköznapokban is.",
+    bullets: ["Heti vagy kétheti takarítás", "Konyha és fürdő kiemelt figyelemmel", "Igény szerint alaposabb rendbetétellel kiegészítve"],
   },
   {
     title: "Irodatakarítás",
     description:
-      "Kisebb irodák és üzleti terek takarítása diszkrét jelenléttel, rugalmas időpontokban.",
-    bullets: ["Nyitás előtti vagy zárás utáni munkavégzés", "Pultok, tárgyalók és közös terek tisztán tartása", "Megbízható, hosszabb távú együttműködés"],
+      "Kisebb irodák és üzleti terek tisztán tartása diszkréten, a napi működéshez igazodva.",
+    bullets: ["Nyitás előtti vagy zárás utáni időpontok", "Közös terek és tárgyalók rendben tartása", "Rendszeres együttműködésre is"],
   },
   {
     title: "Nagytakarítás",
     description:
-      "Alapos, mély tisztítás költözés, felújítás vagy szezonális frissítés előtt és után.",
-    bullets: ["Nehezebben elérhető felületek takarítása", "Vízkőoldás és zsíroldás", "Eseti, intenzív munkafolyamatokra szabva"],
+      "Alapos, részletes takarítás, amikor egy sima heti rendrakás már nem elég.",
+    bullets: ["Nehezebben elérhető felületek tisztítása", "Vízkő- és zsíroldás", "Költözéshez, felújítás utánra vagy szezonális felfrissítéshez"],
   },
   {
     title: "Lépcsőház és társasház",
     description:
-      "Rendszeres közös területi takarítás kulturált megjelenéssel és kiszámítható menetrenddel.",
-    bullets: ["Bejáratok és folyosók rendben tartása", "Igény szerint ablaktisztítás", "Hosszabb távú üzemeltetési ritmus"],
+      "Közös területek rendszeres tisztán tartása kulturált megjelenéssel és megbízható jelenléttel.",
+    bullets: ["Bejáratok és folyosók rendben tartása", "Igény szerinti ablaktisztítás", "Hosszabb távú együttműködésre is"],
   },
   {
     title: "Bérbeadás előtti felkészítés",
     description:
-      "Airbnb vagy hosszú távú kiadás előtt gyors, látványos rendrakó és frissítő takarítás.",
-    bullets: ["Gyors fordulás két vendég között", "Tükrök és textilek vizuális rendbetétele", "Fotózásra kész állapot"],
+      "Gyors, látványos rendrakó és frissítő takarítás vendégfogadás vagy új bérlő érkezése előtt.",
+    bullets: ["Lakásfrissítés rövid határidővel", "Tükrök és felületek ápolt megjelenése", "Fotózásra vagy átadásra kész állapot"],
   },
   {
     title: "Ablak- és felülettisztítás",
     description:
-      "Külön kérhető üveg, magasfényű vagy kényesebb felületek részletes tisztítása.",
-    bullets: ["Ablakok és keretek", "Tükrök és üvegajtók", "Kímélő, felülethez igazított tisztítás"],
+      "Külön kérhető üveg-, tükör- és kényesebb felületek részletes, kímélő tisztítása.",
+    bullets: ["Ablakok és keretek", "Tükrök és üvegajtók", "Felülethez igazított tisztítás"],
   },
 ];
 
 export const homeHighlights: FeatureItem[] = [
   {
-    title: "Többoldalas felépítés",
+    title: "Megbízható jelenlét",
     description:
-      "A látogató külön oldalon tudja megnézni a szolgáltatásokat, árakat, referenciákat és az ajánlatkérést.",
+      "Fontos, hogy tudd, mikor érkezem, mire számíthatsz, és hogy a megbeszéltek szerint haladjon minden alkalom.",
   },
   {
-    title: "Szellős, világos megjelenés",
+    title: "Rugalmas egyeztetés",
     description:
-      "A kékes, tiszta színvilág azonnal takarítási márkát sugall, de kevésbé zsúfolt, mint a hagyományos versenytársak.",
+      "Minden otthon és minden munkahely más, ezért az időpontokat és a feladatokat mindig a valódi igényekhez igazítom.",
   },
   {
-    title: "Külső foglalásra előkészítve",
+    title: "Diszkrét, átlátható folyamat",
     description:
-      "A későbbi SimplyBook.me vagy más külső rendszer könnyen integrálható a meglévő CTA-útvonalakba.",
+      "A cél az, hogy egyszerű legyen az egyeztetés, gyorsan kapj visszajelzést, és végig átlásd, hogyan haladunk.",
   },
 ];
 
 export const priceItems: PriceItem[] = [
   {
-    title: "Alap otthoni takarítás",
+    title: "Rendszeres lakástakarítás",
     price: "Egyedi ajánlat",
     description:
-      "Rendszeres lakástakarítás 1-2 szobás lakásokhoz, személyre szabott felméréssel.",
-    bullets: ["Állapotfelmérés után pontosítva", "Rendszeres megrendelésre optimalizálva", "Kezdő csomagként jól kommunikálható"],
+      "Az ár a lakás méretétől, állapotától és a takarítás gyakoriságától függően alakul.",
+    bullets: ["Felmérés után pontosítva", "Rendszeres megrendeléshez igazítva", "Igény szerint bővíthető feladatlistával"],
   },
   {
     title: "Nagytakarítás",
     price: "Egyedi ajánlat",
     description:
-      "Felújítás, költözés vagy szezonális teljes takarítás esetén részletesebb árazással.",
-    bullets: ["Munkaidő és felület alapján kalkulálva", "Erősebben igénybevett helyiségekre is", "Külön előzetes egyeztetéssel"],
+      "Költözés, felújítás vagy szezonális alaptisztítás esetén részletesebb egyeztetés alapján készül az ajánlat.",
+    bullets: ["Munkaidő és felület alapján kalkulálva", "Erősebben igénybevett helyiségekre is", "Előzetes állapotfelméréssel"],
   },
   {
     title: "Irodatakarítás",
     price: "Havidíjas vagy egyedi",
     description:
-      "Kisebb irodák és céges terek esetén rendszeres vagy eseti konstrukcióval.",
-    bullets: ["Hosszabb távú partneri együttműködéshez", "Nyitvatartáshoz igazítható", "Személyes ajánlatkéréssel pontosítva"],
+      "Kisebb irodák és üzleti terek esetén rendszeres vagy alkalmi konstrukcióban is kérhető.",
+    bullets: ["Nyitvatartáshoz igazítható", "Hosszabb távú együttműködésre is", "Személyes ajánlat alapján"],
   },
 ];
 
@@ -115,28 +115,28 @@ export const referenceItems: ReferenceItem[] = [
   {
     title: "Otthoni frissítő takarítás",
     description:
-      "Világos, rendezett enteriőr kommunikációjához jól használható referenciahangulat.",
+      "Világos, rendezett enteriőrök, ahol a cél a mindennapi kényelem és a nyugodt, tiszta összhatás.",
     imageSrc: "/images/home-clean.jpg",
     imageAlt: "Világos nappali rendezett enteriőrrel",
   },
   {
-    title: "Felületfertőtlenítés irodában",
+    title: "Irodai felületek tisztán tartása",
     description:
-      "Közelképes vizuál, ami professzionális és modern szolgáltatási benyomást kelt.",
+      "Íróasztalok, közös felületek és gyakran használt terek rendszeres, precíz tisztítása.",
     imageSrc: "/images/hero-cleaning.jpg",
     imageAlt: "Irodai asztal takarítása permetezővel és kendővel",
   },
   {
-    title: "Részletfotó eszközökről",
+    title: "Részletes eszköz- és felülettisztítás",
     description:
-      "A szolgáltatási aloldalakon és árblokkok mellett jól használható támogató vizuál.",
+      "Az apróbb részletek és kényesebb felületek ápolása sokszor itt látványos igazán.",
     imageSrc: "/images/vacuum-detail.jpg",
     imageAlt: "Porszívófej kék szőnyegen",
   },
   {
     title: "Ablak- és felülettisztítás",
     description:
-      "Személyesebb, emberközelibb fotó, amely a márkát közvetlenebbé teszi.",
+      "Olyan munkákhoz, ahol a tiszta üveg és az igényes összkép különösen sokat számít.",
     imageSrc: "/images/window-cleaning.jpg",
     imageAlt: "Takarítónő felmosással egy lakásban",
   },
@@ -145,10 +145,11 @@ export const referenceItems: ReferenceItem[] = [
 export const contactDetails = [
   { label: "Telefon", value: "+36 30 123 4567", href: "tel:+36301234567" },
   { label: "E-mail", value: "hello@tisztasagmuhely.hu", href: "mailto:hello@tisztasagmuhely.hu" },
-  { label: "Szolgáltatási terület", value: "Budapest és környéke", href: "/kapcsolat" },
+  { label: "Szolgáltatási terület", value: "Keszthely és környéke", href: "/kapcsolat" },
 ];
 
 export const bookingActions: CtaAction[] = [
   { href: "/ajanlatkeres", label: "Ajánlatkérés indítása" },
-  { href: "https://simplybook.me", label: "SimplyBook.me megtekintése" },
+  { href: "https://simplybook.me", label: "Online foglalási lehetőségek" },
 ];
+

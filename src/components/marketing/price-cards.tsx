@@ -4,12 +4,12 @@ import type { PriceItem } from "@/types/site";
 
 export function PriceCards({ items }: { items: PriceItem[] }) {
   return (
-    <section className="section-space pt-0">
+    <section className="section-space section-warm pt-0">
       <Container>
         <SectionIntro
           eyebrow="Árképzés"
-          title="Az árak most szándékosan ajánlat-alapú kommunikációval szerepelnek."
-          description="A takarítási oldalaknál gyakran félrevezető a fix listaár. Ezért a dizájnban azt hangsúlyozzuk, hogy pontos felmérés után adható korrekt ajánlat."
+          title="Az árak minden esetben az adott feladathoz igazodnak."
+          description="A takarításnál sokat számít a lakás vagy iroda mérete, az aktuális állapot, a feladat részletessége és az, hogy egyszeri vagy rendszeres munkáról van-e szó. Emiatt pontos összeget csak rövid egyeztetés után lehet korrekt módon adni."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
@@ -34,3 +34,5 @@ export function PriceCards({ items }: { items: PriceItem[] }) {
     </section>
   );
 }
+
+

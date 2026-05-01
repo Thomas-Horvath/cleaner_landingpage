@@ -12,7 +12,7 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, title, description, actions }: PageHeroProps) {
   return (
-    <section className="page-hero-space">
+    <section className="page-hero-space section-soft">
       <Container>
         <div className="panel px-5 py-8 sm:px-8 sm:py-10 lg:px-10">
           <div className="max-w-4xl">
@@ -50,3 +50,4 @@ export function HeroLink({
     </Link>
   );
 }
+

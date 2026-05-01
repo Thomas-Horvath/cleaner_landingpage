@@ -8,12 +8,12 @@ const icons = [FaPhone, FaEnvelope, FaLocationDot];
 
 export function ContactGrid() {
   return (
-    <section className="section-space pt-0">
+    <section className="section-space section-warm pt-0">
       <Container>
         <SectionIntro
           eyebrow="Kapcsolat"
-          title="Külön oldalon jobban működik a bizalomépítés, mint egy zsúfolt footerben."
-          description="A kapcsolat oldal most még statikus, de a későbbiekben itt lehet majd térképet, nyitvatartást, adatkezelési linkeket és külső űrlap-integrációt is elhelyezni."
+          title="Ha gyors egyeztetésre van szükséged, itt megtalálsz minden fontos elérhetőséget."
+          description="Legyen szó rendszeres takarításról, egyszeri nagytakarításról vagy csak egy rövid kérdésről, az alábbi elérhetőségeken könnyen fel tudjuk venni a kapcsolatot."
         />
 
         <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -39,3 +39,5 @@ export function ContactGrid() {
     </section>
   );
 }
+
+

@@ -1,4 +1,4 @@
-import type { AdminBookingItem, AdminLoginPayload, AdminSessionData } from '@/types/site';
+import type { AdminBookingItem, AdminLoginPayload, AdminSessionData, BackendBookingStatus } from '@/types/site';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8080/api';
 const ADMIN_SESSION_STORAGE_KEY = 'cleaner_admin_session';
@@ -35,11 +35,17 @@ export function getAdminSessionFromStorage(): AdminSessionData | null {
   try {
     const parsedValue = JSON.parse(rawValue) as AdminSessionData;
 
-    if (!parsedValue.username || !parsedValue.display_name) {
+    if (!parsedValue.username) {
       return null;
     }
 
-    return parsedValue;
+    return {
+      username: parsedValue.username,
+      display_name: typeof parsedValue.display_name === 'string' && parsedValue.display_name.trim() !== ''
+        ? parsedValue.display_name
+        : null,
+      logged_in_at: parsedValue.logged_in_at ?? null,
+    };
   } catch {
     return null;
   }
@@ -156,4 +162,39 @@ export async function fetchAdminBookings(status?: string): Promise<AdminBookings
     data: responseBody.data,
     pagination: responseBody.pagination,
   };
+}
+
+export async function updateAdminBookingStatus(bookingId: number, status: Extract<BackendBookingStatus, 'confirmed' | 'cancelled'>): Promise<{ id: number; status: BackendBookingStatus; updated_at: string; }> {
+  const response = await fetch(`${API_BASE_URL}/admin-booking-status.php`, {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      booking_id: bookingId,
+      status,
+    }),
+  });
+
+  const responseBody = await parseJsonResponse<{
+    success: boolean;
+    message?: string;
+    data?: {
+      id: number;
+      status: BackendBookingStatus;
+      updated_at: string;
+    };
+  }>(response);
+
+  if (response.status === 401) {
+    clearAdminSessionFromStorage();
+    throw new Error('A munkamenet lejárt vagy nincs érvényes belépés.');
+  }
+
+  if (!response.ok || !responseBody.success || !responseBody.data) {
+    throw new Error(responseBody.message ?? 'Nem sikerült frissíteni a foglalás státuszát.');
+  }
+
+  return responseBody.data;
 }

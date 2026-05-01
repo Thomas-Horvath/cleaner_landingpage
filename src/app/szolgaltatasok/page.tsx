@@ -6,17 +6,17 @@ import { ServiceCards } from "@/components/marketing/service-cards";
 import { serviceGroups } from "@/data/site-content";
 
 export const metadata: Metadata = {
-  title: "Szolgáltatások",
-  description: "Otthoni, irodai és nagytakarítási szolgáltatások áttekintése.",
+  title: "Szolgáltatások | Tisztaság Műhely",
+  description: "Lakástakarítás, kisebb irodák takarítása, nagytakarítás és kiegészítő szolgáltatások Keszthelyen és környékén.",
 };
 
 export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Szolgáltatási oldalak"
-        title="Külön menüpont alatt részletezzük, miben tud segíteni a takarítási szolgáltatás."
-        description="Ez az oldal a referenciában látott hosszabb szolgáltatáslista modernebb megfelelője. Tiszta kártyák, rövid leírások és könnyen áttekinthető blokkok segítik a döntést."
+        eyebrow="Szolgáltatások"
+        title="Minden otthon, minden iroda és minden élethelyzet más, ezért a takarítás is ehhez igazodik."
+        description="Akár rendszeres segítséget keresel, akár egy egyszeri, alapos rendbetételre lenne szükséged, itt átnézheted, milyen munkákban tudok segíteni Keszthelyen és a környéken."
         actions={
           <>
             <HeroLink href="/ajanlatkeres" label="Ajánlatot kérek" />
@@ -26,18 +26,18 @@ export default function ServicesPage() {
       />
 
       <ServiceCards
-        eyebrow="Teljes lista"
-        title="Első körben ezekre a szolgáltatástípusokra épül a weboldal."
-        description="A későbbiekben minden kártya bővíthető saját aloldallal, részletesebb tartalommal vagy célzott CTA-val."
+        eyebrow="Szolgáltatások"
+        title="A leggyakoribb takarítási igények egy helyen"
+        description="A pontos feladatok és az időráfordítás mindig attól függnek, milyen állapotban van a helyszín, és te milyen segítséget szeretnél kérni."
         items={serviceGroups}
       />
 
       <CtaBanner
-        eyebrow="Következő lépés"
-        title="A szolgáltatásoldalak után a szövegezés és az árkommunikáció finomítható."
-        description="Ha megvannak a végleges szolgáltatások és területek, ezekhez külön SEO-orientált blokkokat is készíthetünk."
+        eyebrow="Segítek eligazodni"
+        title="Ha még nem tudod pontosan, melyik szolgáltatás lenne számodra a legjobb, egy rövid egyeztetéssel ezt is ki tudjuk találni."
+        description="Elég, ha röviden leírod, milyen térben lenne szükség takarításra, milyen gyakran gondolkodsz benne, és mi az, ami most a legfontosabb számodra. Innen már könnyű továbbmenni."
         primaryAction={{ href: "/kapcsolat", label: "Kapcsolat" }}
-        secondaryAction={{ href: "/referenciak", label: "Referenciák" }}
+        secondaryAction={{ href: "/ajanlatkeres", label: "Ajánlatkérés" }}
       />
     </>
   );
