@@ -86,6 +86,7 @@ export type AdminSessionData = {
 };
 
 export type AdminBookingSlot = {
+  id: number;
   booking_date: string;
   slot: BookingSlotLabel;
 };
@@ -102,4 +103,21 @@ export type AdminBookingItem = {
   created_at: string;
   updated_at: string;
   slots: AdminBookingSlot[];
+};
+
+export type AdminBookingSummary = {
+  total: number;
+  pending: number;
+  confirmed: number;
+  cancelled: number;
+};
+
+export type AdminSlotAvailabilityItem = {
+  id: number;
+  booking_id: number;
+  booking_date: string;
+  slot: BookingSlotLabel;
+  status: BackendBookingStatus;
+  customer_name: string;
+  service_type: string | null;
 };
